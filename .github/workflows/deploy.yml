@@ -34,7 +34,8 @@ jobs:
 
       - name: Find file
         run: |
-          file_name=$(find ./dist -name '*.tar.gz')
+
+          echo "file_name=$(find ./dist -name '*.tar.gz')" >> $file_name
           echo $file_name
 
 #      curl -F package=@dist/django-tenant-users-0.1.tar.gz https://${{ secrets.GEM_FURY_TOKEN }}@push.fury.io/vaunorage/
