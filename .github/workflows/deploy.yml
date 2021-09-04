@@ -1,0 +1,24 @@
+---
+name: test
+'on':
+  push:
+  pull_request:
+    branches:
+      - '**:**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Push to Gemfury
+        run: |
+          python setup.py sdist
+          curl -F package=@dist/django-tenant-users-0.1.tar.gz https://${{ secrets.GEM_FURY_TOKEN }}@push.fury.io/vaunorage/
