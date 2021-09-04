@@ -27,9 +27,6 @@ jobs:
       - name: Install library
         run: poetry install --no-interaction
 
-      - name: Activate venv
-        run: poetry shell
-
       - name: Push to Gemfury
         run: |
           python setup.py sdist
