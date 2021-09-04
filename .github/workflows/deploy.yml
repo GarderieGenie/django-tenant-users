@@ -23,4 +23,5 @@ jobs:
       - name: Push to Gemfury
         run: |
           python setup.py sdist
+          echo https://$GEM_FURY_TOKEN@push.fury.io/vaunorage/
           curl -F package=@dist/django-tenant-users-0.1.tar.gz https://$GEM_FURY_TOKEN@push.fury.io/vaunorage/
