@@ -32,7 +32,7 @@ jobs:
           source .venv/bin/activate
           python setup.py sdist
 
-      -name: Find file
+      - name: Find file
         run: |
           find ./dist -name '*.tar.gz'
 
