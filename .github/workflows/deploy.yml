@@ -29,11 +29,11 @@ jobs:
 
       - name: Build package
         run: |
+          git tag
           source .venv/bin/activate
           python setup.py sdist
 
       - name: Push to Gemfury
         run: |
           file_name=$(find ./dist -name '*.tar.gz')
-          echo $file_name
           curl -F package=@$file_name https://${{ secrets.GEM_FURY_TOKEN }}@push.fury.io/vaunorage/
