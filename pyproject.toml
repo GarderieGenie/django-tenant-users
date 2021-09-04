@@ -53,6 +53,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.6.2"
+versioneer = "^0.20"
 
 
 [tool.poetry.dev-dependencies]

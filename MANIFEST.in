@@ -1,3 +1,5 @@
 include LICENSE
 include README.rst
 recursive-include docs *
+include versioneer.py
+include tenant_users/_version.py
