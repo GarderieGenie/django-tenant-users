@@ -34,6 +34,6 @@ jobs:
 
       - name: Find file
         run: |
-          find ./dist -name '*.tar.gz'
+          /usr/bin/git diff
 
 #      curl -F package=@dist/django-tenant-users-0.1.tar.gz https://${{ secrets.GEM_FURY_TOKEN }}@push.fury.io/vaunorage/
