@@ -18,7 +18,7 @@ def get_current_tenant():
 
 
 def create_public_tenant(domain_url, owner_email, **owner_extra):
-    custom_model = owner_extra.get('model')
+    custom_model = owner_extra.pop('model')
     if custom_model:
         UserModel = custom_model
     else:
