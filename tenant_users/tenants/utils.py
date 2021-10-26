@@ -18,7 +18,11 @@ def get_current_tenant():
 
 
 def create_public_tenant(domain_url, owner_email, **owner_extra):
-    UserModel = get_user_model()
+    custom_model = owner_extra.get('model')
+    if custom_model:
+        UserModel = custom_model
+    else:
+        UserModel = get_user_model()
     TenantModel = get_tenant_model()
     public_schema_name = get_public_schema_name()
 

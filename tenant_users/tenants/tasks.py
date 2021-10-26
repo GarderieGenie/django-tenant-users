@@ -13,7 +13,7 @@ from tenant_users.compat import (
 from tenant_users.tenants.models import ExistsError, InactiveError
 
 
-def provision_tenant(tenant_name, tenant_slug, user_email):
+def provision_tenant(tenant_name, tenant_slug, user_email, model=None):
     """Create a tenant with default roles and permissions.
 
     Returns:
@@ -21,7 +21,10 @@ def provision_tenant(tenant_name, tenant_slug, user_email):
     """
     tenant = None
 
-    UserModel = get_user_model()
+    if model:
+        UserModel = model
+    else:
+        UserModel = get_user_model()
     TenantModel = get_tenant_model()
     DomainModel = get_tenant_domain_model()
 

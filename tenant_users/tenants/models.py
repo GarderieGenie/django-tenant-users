@@ -222,7 +222,11 @@ class UserProfileManager(BaseUserManager):
         # inside a tenant. Must create public tenant permissions during user
         # creation. This happens during assign role. This function cannot be
         # used until a public schema already exists
-        UserModel = get_user_model()
+        custom_model = extra_fields.get('model')
+        if custom_model:
+            UserModel = custom_model
+        else:
+            UserModel = get_user_model()
 
         if connection.schema_name != get_public_schema_name():
             raise SchemaError(
