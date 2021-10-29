@@ -18,7 +18,7 @@ build = "scripts:build"
 [tool.poetry]
 name = "django-tenant-users"
 description = "A Django app to extend django-tenants to incorporate global multi-tenant users"
-version = "0.3.12"
+version = "4.0.0"
 license = "MIT License"
 
 packages = [
