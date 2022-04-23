@@ -6,7 +6,10 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import connection, models
 from django.dispatch import Signal
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
+try:
+    from django.utils.translation import ugettext_lazy as _
+except ImportError:
+    from django.utils.translation import gettext_lazy as _
 
 from tenant_users.compat import (
     TenantMixin,
